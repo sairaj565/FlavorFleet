@@ -1,0 +1,414 @@
+/* ==========================================================================
+   FlavorFleet - Claymorphism & Neomorphic Design System
+   Appetizing Warm 3D Tactile Design for Food Delivery
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Background Canvas (Warm Dough / Soft Cream - allows white highlights to shine) */
+    --clay-bg: #f6f1e8;
+    --clay-bg-soft: #fcf9f4;
+    --clay-surface: #ffffff;
+    --clay-surface-alt: #fffaf5;
+
+    /* Appetite-Stimulating Culinary Accents */
+    --clay-primary: #ff5e28;
+    --clay-primary-hover: #e64c17;
+    --clay-primary-soft: #fff1eb;
+    --clay-secondary: #f59e0b; /* Turmeric Gold */
+    --clay-green: #10b981;     /* Fresh Herb Green */
+    --clay-green-soft: #ecfdf5;
+    --clay-red: #ef4444;       /* Spicy Berry Red */
+    --clay-red-soft: #fef2f2;
+
+    /* Text & Contrast */
+    --clay-text-dark: #1e1b18;
+    --clay-text-body: #44403c;
+    --clay-text-muted: #78716c;
+    --clay-text-light: #a8a29e;
+    --clay-border-soft: #ede4d8;
+
+    /* Neomorphic / Claymorphic Tactile Depths */
+    --clay-card-radius: 22px;
+    --clay-pill-radius: 999px;
+    --clay-input-radius: 14px;
+    --clay-btn-radius: 14px;
+
+    /* Dual Soft Shadows (Bottom-right shadow + Top-left light reflection + Inner rim) */
+    --clay-shadow-card: 10px 14px 28px rgba(182, 155, 134, 0.16),
+                        -8px -8px 20px #ffffff,
+                        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+
+    --clay-shadow-hover: 14px 22px 38px rgba(182, 155, 134, 0.22),
+                         -10px -10px 24px #ffffff,
+                         inset 0 1px 2px rgba(255, 255, 255, 0.9);
+
+    --clay-shadow-pill: 5px 7px 15px rgba(182, 155, 134, 0.15),
+                        -4px -4px 10px #ffffff,
+                        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+
+    --clay-shadow-primary: 0 10px 24px rgba(255, 94, 40, 0.35),
+                           inset 0 2px 4px rgba(255, 255, 255, 0.45),
+                           inset 0 -2px 4px rgba(0, 0, 0, 0.15);
+
+    /* Sunken / Inset Shadows (for input fields, search bars, and active states) */
+    --clay-inset: inset 3px 4px 8px rgba(182, 155, 134, 0.18),
+                  inset -3px -3px 8px #ffffff;
+
+    --clay-inset-focus: inset 3px 4px 8px rgba(255, 94, 40, 0.12),
+                        inset -3px -3px 8px #ffffff,
+                        0 0 0 2.5px rgba(255, 94, 40, 0.3);
+
+    --transition: all 0.24s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ================= Base Resets ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--clay-bg);
+    color: var(--clay-text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+}
+
+/* ================= Reusable Navbar Component ================= */
+.clay-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(246, 241, 232, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 6px 20px rgba(182, 155, 134, 0.08);
+}
+
+.clay-nav-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.clay-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.clay-brand-logo {
+    height: 44px;
+    width: 44px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 4px 6px 14px rgba(182, 155, 134, 0.2), -3px -3px 8px #ffffff;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+.clay-brand-text {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--clay-text-dark);
+    letter-spacing: -0.5px;
+}
+
+.clay-brand-text span {
+    color: var(--clay-primary);
+}
+
+.clay-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ================= Clay Cards ================= */
+.clay-card {
+    background: var(--clay-surface);
+    border-radius: var(--clay-card-radius);
+    padding: 24px;
+    box-shadow: var(--clay-shadow-card);
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    transition: var(--transition);
+}
+
+.clay-card:hover {
+    box-shadow: var(--clay-shadow-hover);
+    transform: translateY(-4px);
+}
+
+/* ================= Tactile Buttons ================= */
+.clay-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: var(--clay-btn-radius);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+    white-space: nowrap;
+}
+
+.clay-btn-primary {
+    background: var(--clay-primary);
+    color: #ffffff;
+    box-shadow: var(--clay-shadow-primary);
+}
+
+.clay-btn-primary:hover {
+    background: var(--clay-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(255, 94, 40, 0.42), inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.clay-btn-primary:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(255, 94, 40, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.clay-btn-secondary {
+    background: var(--clay-surface);
+    color: var(--clay-text-body);
+    box-shadow: var(--clay-shadow-pill);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+}
+
+.clay-btn-secondary:hover {
+    color: var(--clay-primary);
+    transform: translateY(-2px);
+    box-shadow: 8px 10px 20px rgba(182, 155, 134, 0.2), -5px -5px 12px #ffffff;
+}
+
+.clay-btn-secondary:active {
+    transform: translateY(1px);
+    box-shadow: var(--clay-inset);
+}
+
+.clay-btn-danger {
+    background: var(--clay-red-soft);
+    color: var(--clay-red);
+    box-shadow: 4px 6px 12px rgba(239, 68, 68, 0.15), -3px -3px 8px #ffffff;
+    border: 1.5px solid rgba(252, 165, 165, 0.5);
+}
+
+.clay-btn-danger:hover {
+    background: #fee2e2;
+    transform: translateY(-1px);
+}
+
+/* ================= Sunken Inset Form Inputs ================= */
+.clay-input-group {
+    margin-bottom: 18px;
+}
+
+.clay-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--clay-text-body);
+    margin-bottom: 7px;
+}
+
+.clay-input,
+.clay-textarea,
+.clay-select {
+    width: 100%;
+    padding: 13px 16px;
+    background: var(--clay-bg-soft);
+    border: 1px solid rgba(182, 155, 134, 0.18);
+    border-radius: var(--clay-input-radius);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--clay-text-dark);
+    box-shadow: var(--clay-inset);
+    transition: var(--transition);
+    outline: none;
+}
+
+.clay-input:focus,
+.clay-textarea:focus,
+.clay-select:focus {
+    box-shadow: var(--clay-inset-focus);
+    border-color: rgba(255, 94, 40, 0.4);
+    background: #ffffff;
+}
+
+/* ================= Tactile Filter Chips ================= */
+.clay-chip {
+    padding: 9px 20px;
+    border-radius: var(--clay-pill-radius);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--clay-surface);
+    color: var(--clay-text-body);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    box-shadow: var(--clay-shadow-pill);
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    user-select: none;
+}
+
+.clay-chip:hover {
+    color: var(--clay-primary);
+    transform: translateY(-2px);
+}
+
+.clay-chip.active {
+    background: var(--clay-primary);
+    color: #ffffff;
+    box-shadow: var(--clay-shadow-primary);
+    border-color: var(--clay-primary);
+}
+
+/* ================= Clay Quantity Stepper [ - 1 + ] ================= */
+.clay-qty-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--clay-surface);
+    border-radius: var(--clay-pill-radius);
+    padding: 4px 6px;
+    box-shadow: var(--clay-shadow-pill);
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    gap: 8px;
+}
+
+.clay-qty-form {
+    margin: 0;
+    display: inline-flex;
+}
+
+.clay-qty-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--clay-primary);
+    color: #ffffff;
+    border: none;
+    font-size: 16px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255, 94, 40, 0.35);
+    transition: var(--transition);
+}
+
+.clay-qty-btn:hover {
+    transform: scale(1.1);
+    background: var(--clay-primary-hover);
+}
+
+.clay-qty-btn:active {
+    transform: scale(0.92);
+}
+
+.clay-qty-count {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--clay-text-dark);
+    min-width: 24px;
+    text-align: center;
+}
+
+/* ================= Badges ================= */
+.clay-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: var(--clay-pill-radius);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.clay-badge-green {
+    background: var(--clay-green-soft);
+    color: var(--clay-green);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.clay-badge-orange {
+    background: var(--clay-primary-soft);
+    color: var(--clay-primary);
+    border: 1px solid rgba(255, 94, 40, 0.25);
+}
+
+.clay-badge-count {
+    background: #ffffff;
+    color: var(--clay-primary);
+    border-radius: 999px;
+    padding: 2px 7px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-left: 4px;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= Footer ================= */
+.clay-footer {
+    background: #1c1815;
+    color: #a8a29e;
+    padding: 40px 24px 24px;
+    margin-top: auto;
+    border-top: 2px solid rgba(255, 94, 40, 0.2);
+}
+
+.clay-footer-inner {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.clay-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+}
+
+.clay-footer-logo {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.clay-footer-logo span {
+    color: var(--clay-primary);
+}
+
+.clay-footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    color: #78716c;
+}

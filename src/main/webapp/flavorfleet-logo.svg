@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 56" width="215" height="56">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5200"/>
+      <stop offset="100%" stop-color="#ff7a3d"/>
+    </linearGradient>
+    <linearGradient id="fleetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff5200"/>
+      <stop offset="100%" stop-color="#ff3300"/>
+    </linearGradient>
+    <filter id="iconShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#ff5200" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Left Icon Mark -->
+  <g transform="translate(4, 6)">
+    <!-- Squircle Background -->
+    <rect x="0" y="0" width="44" height="44" rx="13" fill="url(#logoGrad)" filter="url(#iconShadow)"/>
+    <rect x="1" y="1" width="42" height="42" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.2"/>
+    
+    <!-- Lightning Bolt Motif -->
+    <path d="M25 8 L14 24 L22 24 L19 36 L32 19 L23 19 Z" fill="#ffffff"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(58, 36)">
+    <!-- "Flavor" in deep modern slate -->
+    <text font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" 
+          font-weight="800" 
+          font-size="28" 
+          fill="#0f172a" 
+          letter-spacing="-0.8">Flavor</text>
+
+    <!-- "Fleet" in vibrant gradient orange -->
+    <text x="89" 
+          font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" 
+          font-weight="800" 
+          font-size="28" 
+          fill="url(#fleetGrad)" 
+          letter-spacing="-0.8">Fleet</text>
+  </g>
+</svg>

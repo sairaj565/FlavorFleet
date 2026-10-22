@@ -1,0 +1,27 @@
+# Build and Compiled Classes
+build/
+bin/
+*.class
+
+# Eclipse Project Metadata (keep .project and .classpath for easy import)
+.metadata/
+.settings/
+.recommenders/
+.loadpath
+.factorypath
+
+# Server and Temporary Artifacts
+tmp/
+*.log
+*.war
+*.ear
+
+# OS-Specific Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code & IntelliJ IDEA (if opened in other editors)
+.idea/
+*.iml
+.vscode/
