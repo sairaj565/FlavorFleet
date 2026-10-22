@@ -207,5 +207,5 @@ FlavorFleet/
 ---
 
 ## 👨‍💻 Author & Acknowledgments
-- Developed by **Sairaj** as an Advanced Java Full-Stack Application.
+- Developed by **Sairajiv** as an Advanced Java Full-Stack Application.
 - Built using principles taught in **Tap Academy** Advanced Java curriculum.
